@@ -1,5 +1,5 @@
 # precip_class
-This repository contains a modified version of WRF's RRTMG scheme "module_ra_rrtmg_lw.F" that includes a column-based precipitation classification algorithm as a switch to ICLOUD (for removing cloud interaction).
+This repository contains a modified version of WRF's RRTMG scheme "module_ra_rrtmg_lw.F" that includes a column-based precipitation classification algorithm as a switch to ICLOUD (for removing cloud interaction). Modified from WRFv4.3.1.
 
 Coded by James Ruppert and Emily Luschen of the University of Oklahoma.
 

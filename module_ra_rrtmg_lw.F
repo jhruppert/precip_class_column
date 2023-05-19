@@ -11980,28 +11980,26 @@ CONTAINS
             IWP = IWP + RHO3D(I,K,J)*DZ1D(K) * (QI3D(I,K,J) + QS3D(I,K,J) + QG3D(I,K,J))
          ENDDO
          c_type = 0
-         ! Considered non-cloud/non-precipitating if below TWP threshold
-         IF ((LWP+IWP) .gt. twp_thresh) THEN
-            ! Skip points with zero CWP (NANs)
-            IF (LWP .ne. 0) THEN
-               !  Convective types
-               IF ((IWP/LWP) .le. cr_thresh) THEN ! bottom-heaviness threshold
-                  IF (RAININT .ge. rain_thresh_conv) THEN ! rain threshold
-                     IF (GRAUPINT .ge. graup_thresh) THEN ! graupel threshold
-                        c_type = 1 ! deep convective
-                     ELSE
-                        c_type = 2 ! congestus convective
-                     ENDIF
+         ! Only considered to be cloud/precipitating if above TWP threshold
+         ! and LWP is non-zero
+         IF (((LWP+IWP) .gt. twp_thresh) .and. (LWP .ne. 0))  THEN
+            !  Convective types
+            IF ((IWP/LWP) .le. cr_thresh) THEN ! bottom-heaviness threshold
+               IF (RAININT .ge. rain_thresh_conv) THEN ! rain threshold
+                  IF (GRAUPINT .ge. graup_thresh) THEN ! graupel threshold
+                     c_type = 1 ! deep convective
                   ELSE
-                     c_type = 3 ! shallow
+                     c_type = 2 ! congestus convective
                   ENDIF
-            !  Stratiform types
                ELSE
-                  IF (RAININT .ge. rain_thresh_strat) THEN ! rain threshold
-                     c_type = 4 ! stratiform
-                  ELSE
-                     c_type = 5 ! anvil
-                  ENDIF
+                  c_type = 3 ! shallow
+               ENDIF
+            !  Stratiform types
+            ELSE
+               IF (RAININT .ge. rain_thresh_strat) THEN ! rain threshold
+                  c_type = 4 ! stratiform
+               ELSE
+                  c_type = 5 ! anvil
                ENDIF
             ENDIF
          ENDIF

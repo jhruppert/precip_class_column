@@ -6,4 +6,6 @@ a single time step of WRF model output.
 
 Coded by James Ruppert and Emily Luschen, University of Oklahoma.
 
+**This algorithm has not yet been assessed via peer review, so caution is suggested in its use. A manuscript is now in preparation by the authors to review this work.**
+
 5/18/23

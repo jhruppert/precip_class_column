@@ -22,7 +22,7 @@
       integer, parameter :: kind_im = kind(1)            
       integer, parameter :: kind_in = kind(1)                ! native integer
 
-!
+! 
 !     real kinds
 !     ----------
 !

@@ -7,7 +7,7 @@
 # when running.
 # 
 # Setup using modules on OSCER.
-# 
+#  
 
 module purge
 module load netCDF-Fortran/4.5.3-iimpi-2021a

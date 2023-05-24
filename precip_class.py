@@ -37,9 +37,9 @@ def precip_class(q_int):
     shape_out = shape[1:ndims]
 
     # Integrated water variables
-    LWP = q_int[0] + q_int[1]               # Liquid water path = cloud + rain
-    IWP = q_int[2] + q_int[3] + q_int[4]    # Ice water path = ice + snow + graupel
-    TWP = LWP + IWP                         # Total water path [mm]
+    LWP = q_int[0] + q_int[1]            # Liquid water path = cloud + rain
+    IWP = q_int[2] + q_int[3] + q_int[4] # Ice water path = ice + snow + graupel
+    TWP = LWP + IWP                      # Total water path [mm]
 
     # Threshold p]arameters
     twp_thresh = 1e-1
@@ -55,25 +55,25 @@ def precip_class(q_int):
     cr = IWP/LWP
 
     # Deep convection
-    c_type[( ((LWP != 0) & (TWP > twp_thresh)) &
+    c_type[(((LWP != 0) & (TWP > twp_thresh)) &
             (cr <= cr_thresh) &
             (q_int[1] >= rain_thresh_conv) &
             (q_int[4] >= graup_thresh) ).nonzero() ] = 1
     # Congestus
-    c_type[( ((LWP != 0) & (TWP > twp_thresh)) &
+    c_type[(((LWP != 0) & (TWP > twp_thresh)) &
             (cr <= cr_thresh) &
             (q_int[1] >= rain_thresh_conv) &
             (q_int[4] < graup_thresh) ).nonzero() ] = 2
     # Shallow
-    c_type[( ((LWP != 0) & (TWP > twp_thresh)) &
+    c_type[(((LWP != 0) & (TWP > twp_thresh)) &
             (cr <= cr_thresh) &
             (q_int[1] < rain_thresh_conv) ).nonzero() ] = 3
     # Stratiform
-    c_type[( ((LWP != 0) & (TWP > twp_thresh)) &
+    c_type[(((LWP != 0) & (TWP > twp_thresh)) &
             (cr > cr_thresh) &
             (q_int[1] >= rain_thresh_strat) ).nonzero() ] = 4
     # Anvil
-    c_type[( ((LWP != 0) & (TWP > twp_thresh)) &
+    c_type[(((LWP != 0) & (TWP > twp_thresh)) &
             (cr > cr_thresh) &
             (q_int[1] < rain_thresh_strat) ).nonzero() ] = 5
 

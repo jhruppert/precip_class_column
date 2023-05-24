@@ -4,7 +4,7 @@ This repository features a novel convection/stratiform classification algorithm 
 
 The repository contains:
 
-1) *module_ra_rrtmg_lw:* a modified version of WRF's RRTMG-LW scheme "module_ra_rrtmg_lw.F" to include a column-based precipitation classification algorithm as a switch for ICLOUD (to remove cloud interaction). That script is modified from WRFv4.3.1.
+1) *module_ra_rrtmg_lw:* a modified version of WRF's RRTMG-LW scheme "module_ra_rrtmg_lw.F" to include the classification scheme as a switch for ICLOUD (to remove cloud interaction). That script is modified from WRFv4.3.1.
 2) *cloud_ratio_class.ipynb:* a Jupyter notebook that applies and demos this new algorithm using a single time step of WRF model output.
 3) *precip_class.py:* python function of the algorithm.
 4) *pclass_traditional.nc:* single time step output of traditional classification approach applied to WRF output (see Jupyter notebook for more info).

@@ -22,7 +22,7 @@
       integer, parameter :: kind_im = kind(1)            
       integer, parameter :: kind_in = kind(1)                ! native integer
 
-! 
+!
 !     real kinds
 !     ----------
 !
@@ -12003,7 +12003,11 @@ CONTAINS
                ENDIF
             ENDIF
          ENDIF
-         IF (c_type .ge. 4) THEN ! STRATIFORM OR ANVIL
+
+       ! THIS IS THE SWITCH
+         IF (c_type .ge. 4) THEN ! STRATANVIL_ON: CRF on for STRATIFORM and ANVIL
+!         IF (c_type .lt. 4) THEN ! STRATANVIL_OFF: CRF off for STRATIFORM and ANVIL
+!         IF (c_type .ne. 4) THEN ! STRAT_OFF: CRF off for only STRATIFORM
             CLASS_ICLOUD = 1
          ELSE
             CLASS_ICLOUD = 0
@@ -12157,7 +12161,8 @@ CONTAINS
          liqflglw = 1
 
 !Mukul change the flags here with reference to the new effective cloud/ice/snow radius
-         IF (ICLOUD .ne. 0) THEN
+!         IF (ICLOUD .ne. 0) THEN
+         IF (CLASS_ICLOUD .ne. 0) THEN
             IF ( has_reqc .ne. 0) THEN
                inflglw = 3
                DO K=kts,kte

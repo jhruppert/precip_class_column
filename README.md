@@ -1,4 +1,4 @@
-# precip_class_column
+# Column-based Precipitation Classification Algorithm
 
 This repository features a novel column-based convection/stratiform classification algorithm based on hydrometeor information designed for applications to numerical model output and model runtime. It uses column-integrated hydrometeor information to separate convection and stratiform columns (plus additional sub-classes) based on the ratio of column-integrated ice to liquid, inspired by Sui et al. (2007, JGR). Additional criteria imposed on specific hydrometeor species are used to further separate convective and stratiform into a total of 5 categories: shallow, congestus, and deep convection; and stratiform and anvil.
 

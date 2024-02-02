@@ -1,6 +1,6 @@
 # precip_class_column
 
-This repository features a novel column-based convection/stratiform classification algorithm based on hydrometeor information designed for applications to numerical model output and model runtime. It takes a column-independent approach that separates convection and stratiform on the basis of the ratio of ice to liquid hydrometeors, inspired by Sui et al. (2007, JGR). Additional criteria imposed on specific hydrometeor species are used to further separate into a total of 5 categories: shallow, congestus, and deep convection; and stratiform and anvil.
+This repository features a novel column-based convection/stratiform classification algorithm based on hydrometeor information designed for applications to numerical model output and model runtime. It uses column hydrometeor information to separate convection and stratiform (and more sub-class) columns based on the ratio of integrated ice to liquid, inspired by Sui et al. (2007, JGR). Additional criteria imposed on specific hydrometeor species are used to further separate into a total of 5 categories: shallow, congestus, and deep convection; and stratiform and anvil.
 
 The repository contains:
 
